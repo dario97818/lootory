@@ -18,7 +18,11 @@ $text = isset($message['text']) ? $message['text'] : "";
 
 $text = trim($text);
 $text = strtolower($text);
-
+$response = '';
+if(isset($message['text']))
+{
+	$response = "Ho ricevuto il seguente messaggio di testo: " . $message['text'];
+}
 header("Content-Type: application/json");
 $parameters = array('chat_id' => $chatId, "text" => $response);
 $parameters["method"] = "sendMessage";
